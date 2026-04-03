@@ -568,4 +568,3 @@ macx {
 
 VERSION = "$$cat(version.txt)"
 DEFINES += VERSION_STR=\\\"$$cat(version.txt)\\\"
-DEFINES += DISPLAY_VERSION_STR=\\\"$$cat(version.txt) (custom build 20260404.1)\\\"
