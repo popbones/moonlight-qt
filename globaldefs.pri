@@ -20,6 +20,14 @@ CONFIG(release, debug|release) {
     }
 }
 
+# Qt 6.7 on newer Apple toolchains may use __yield() from qyieldcpu.h without
+# pulling in the arm ACLE declarations first. Force-include the header so arm64
+# macOS builds keep working with current Xcode SDKs.
+macx:contains(QT_ARCH, arm64) {
+    QMAKE_CFLAGS += -include arm_acle.h
+    QMAKE_CXXFLAGS += -include arm_acle.h
+}
+
 # Enable ASan for Linux or macOS
 #CONFIG += sanitizer sanitize_address
 

@@ -343,7 +343,7 @@ libplacebo {
     HEADERS += \
         streaming/video/ffmpeg-renderers/plvk.h
 }
-config_EGL {
+config_EGL:!macx {
     message(EGL renderer selected)
 
     CONFIG += egl
@@ -568,3 +568,4 @@ macx {
 
 VERSION = "$$cat(version.txt)"
 DEFINES += VERSION_STR=\\\"$$cat(version.txt)\\\"
+DEFINES += DISPLAY_VERSION_STR=\\\"$$cat(version.txt) (custom build 20260404.1)\\\"
